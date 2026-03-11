@@ -1,10 +1,7 @@
-
-
 from __future__ import annotations
 
 from tax_calculation import TaxInputs, compute_taxes
 from database import store_tax_return, retrieve_tax_return
-
 
 
 def money(x: float) -> str:
@@ -41,7 +38,6 @@ def read_nonempty(prompt: str) -> str:
         if v:
             return v
         print("This field can’t be blank.")
-
 
 
 def collect_tax_inputs(name: str, province: str = "ON") -> TaxInputs:
@@ -96,14 +92,9 @@ def print_results(result) -> None:
         print("Estimated owing:    ", money(abs(result.estimated_refund_or_owing)))
 
 
-
-
 def collect_login_profile() -> dict:
-
-
     print("\n=== Login Mode (Saved Return) ===")
     name = read_nonempty("Full name: ")
-
     phone = read_nonempty("Phone number: ")
     address = read_nonempty("Address: ")
 
@@ -122,11 +113,13 @@ def collect_login_profile() -> dict:
 
 def guest_name_choice() -> str:
     print("\n=== Guest Mode (Not Saved) ===")
-    choice = read_choice("Continue as (1) Anonymous guest or (2) Enter a display name? [1/2]: ", ("1", "2"))
+    choice = read_choice(
+        "Continue as (1) Anonymous guest or (2) Enter a display name? [1/2]: ",
+        ("1", "2"),
+    )
     if choice == "1":
         return "Anonymous"
     return read_nonempty("Display name: ")
-
 
 
 def load_existing_return() -> None:
@@ -142,6 +135,11 @@ def load_existing_return() -> None:
     print("Province:  ", record.get("province", ""))
     print("Timestamp: ", record.get("timestamp", ""))
 
+    profile = record.get("profile", {})
+    if profile:
+        print("Phone:     ", profile.get("phone", ""))
+        print("Address:   ", profile.get("address", ""))
+        print("Status:    ", profile.get("employment_status", ""))
 
     results = record.get("results", {})
     if results:
@@ -164,17 +162,15 @@ def load_existing_return() -> None:
                 if isinstance(v, (int, float)) and "rate" not in k:
                     print(f"{k:>26}: {money(float(v))}")
                 elif "rate" in k:
-                    print(f"{k:>26}: {float(v)*100:.2f}%")
+                    print(f"{k:>26}: {float(v) * 100:.2f}%")
                 else:
                     print(f"{k:>26}: {v}")
     else:
         print("\n(Record loaded, but results missing.)")
 
 
-
-
 def main() -> None:
-    print("\n == Ontario + Federal Income Tax Calculator (2025–2026) == \n")
+    print("\n== Ontario + Federal Income Tax Calculator (2025–2026) ==\n")
 
     choice = input(
         "Do you want to (1) start a new calculation or (2) load an existing one? [1/2]: "
@@ -184,13 +180,14 @@ def main() -> None:
         load_existing_return()
         return
 
-
-    mode = read_choice("Choose mode: (1) Guest (not saved) or (2) Login (saved) [1/2]: ", ("1", "2"))
+    mode = read_choice(
+        "Choose mode: (1) Guest (not saved) or (2) Login (saved) [1/2]: ",
+        ("1", "2"),
+    )
 
     province = "ON"
 
     if mode == "1":
-
         name = guest_name_choice()
         inputs = collect_tax_inputs(name=name, province=province)
         result = compute_taxes(inputs)
@@ -199,22 +196,18 @@ def main() -> None:
         print("\nGuest mode: this return was NOT saved.")
         return
 
-
     profile = collect_login_profile()
-
     inputs = collect_tax_inputs(name=profile["name"], province=province)
     result = compute_taxes(inputs)
 
-
-    tax_id = store_tax_return(inputs, result)
+    tax_id = store_tax_return(inputs, result, profile)
 
     print_results(result)
 
     print("\nYour Tax Reference ID:", tax_id)
     print("Save this ID to retrieve your tax calculation later.")
 
-
-    print("\n(Login profile collected)")
+    print("\n(Login profile collected and saved)")
     print("Phone:", profile["phone"])
     print("Address:", profile["address"])
     print("Employment status:", profile["employment_status"])
