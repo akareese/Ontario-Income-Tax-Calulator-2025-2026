@@ -2,5 +2,5 @@ This project is a Python-based Canadian income tax estimator that calculates Fed
 
 In addition to calculation, the project includes a simple return-saving and retrieval system. Each saved return is assigned a unique randomly generated Tax Reference ID.
 
-![Visuals](demo.png)
+![Visuals](demo1.png)
 
