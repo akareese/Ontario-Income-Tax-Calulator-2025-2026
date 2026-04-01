@@ -1,0 +1,108 @@
+{
+    "TX-2026-SD4E-G4F7": {
+        "name": "Steven Bills",
+        "province": "ON",
+        "profile": {
+            "name": "Steven Bills",
+            "phone": "647 654 0930",
+            "address": "43 Brooke Dr",
+            "employment_status": "EMPLOYED"
+        },
+        "inputs": {
+            "name": "Steven Bills",
+            "province": "ON",
+            "employment_income": 78000.0,
+            "self_employment_income": 0.0,
+            "other_income": 1600.0,
+            "rrsp_fhsa_contrib": 4000.0,
+            "capital_gains": 0.0,
+            "eligible_dividends": 0.0,
+            "noneligible_dividends": 0.0,
+            "income_taxes_paid": 14500.0
+        },
+        "results": {
+            "total_income": 79600.0,
+            "taxable_income": 75600.0,
+            "federal_tax": 10069.564999999999,
+            "ontario_tax": 4181.9645,
+            "cpp": 3867.5,
+            "ei": 1045.8,
+            "total_tax": 19164.829499999996,
+            "net_income": 60435.17050000001,
+            "average_rate": 0.24076418969849242,
+            "marginal_rate": 0.2965,
+            "estimated_refund_or_owing": -4664.829499999996
+        },
+        "timestamp": "2026-03-11T18:14:58"
+    },
+    "TX-2026-9JF6-KSQJ": {
+        "name": "Ethan Reis",
+        "province": "Ontario",
+        "profile": {
+            "phone": "6478244792 ",
+            "address": "68 Merkley Sq",
+            "employment_status": "STUDENT"
+        },
+        "inputs": {
+            "name": "Ethan Reis",
+            "province": "Ontario",
+            "employment_income": 60907.0,
+            "self_employment_income": 2090.0,
+            "other_income": 2090.0,
+            "rrsp_fhsa_contrib": 2090.0,
+            "capital_gains": 2090.0,
+            "eligible_dividends": 2090.0,
+            "noneligible_dividends": 2090.0,
+            "income_taxes_paid": 2090.0
+        },
+        "results": {
+            "total_income": 71357.0,
+            "taxable_income": 69267.0,
+            "federal_tax": 8771.3,
+            "ontario_tax": 3602.4950000000003,
+            "cpp": 3540.0715,
+            "ei": 1045.7502,
+            "total_tax": 16959.6167,
+            "net_income": 54397.3833,
+            "average_rate": 0.23767278192749133,
+            "marginal_rate": 0.2965,
+            "estimated_refund_or_owing": -14869.616699999999
+        },
+        "timestamp": "2026-04-01T18:04:47"
+    },
+    "TX-2026-CZC7-JSQG": {
+        "name": "Ethan Reis ",
+        "province": "Ontario",
+        "profile": {
+            "phone": "6478244792 ",
+            "address": "68 Merkley Sq ",
+            "employment_status": "EMPLOYED"
+        },
+        "inputs": {
+            "name": "Ethan Reis ",
+            "province": "Ontario",
+            "employment_income": 47500.0,
+            "self_employment_income": 0.0,
+            "other_income": 2000.0,
+            "rrsp_fhsa_contrib": 0.0,
+            "capital_gains": 0.0,
+            "eligible_dividends": 0.0,
+            "noneligible_dividends": 0.0,
+            "income_taxes_paid": 1200.0
+        },
+        "results": {
+            "total_income": 49500.0,
+            "taxable_income": 49500.0,
+            "federal_tax": 5069.25,
+            "ontario_tax": 1873.6005,
+            "cpp": 2618.0,
+            "ei": 788.5,
+            "total_tax": 10349.3505,
+            "net_income": 39150.6495,
+            "average_rate": 0.2090777878787879,
+            "marginal_rate": 0.2005,
+            "estimated_refund_or_owing": -9149.3505
+        },
+        "timestamp": "2026-04-01T18:16:14"
+    }
+}
